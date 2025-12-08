@@ -45,11 +45,17 @@ This script currently updates the following:
 
 - 🍺 **Homebrew** formulas and casks (`brew`)
 - 🧑‍💻 **VSCode** extensions (`code`)
+- 🌊 **Windsurf** extensions (`windsurf`)
 - 📦 **Node Package Manager** packages (`npm`)
-- 💎 **RubyGems** (`gem`)
 - 🧶 **Yarn** packages (`yarn`)
-- 🚚 **Rust** packages (`cargo`)
 - 🛍 **App Store** applications (`mas`)
 - 🖥 **MacOS** system updates and patches (`softwareupdate`)
+
+### Optional Updates (Commented Out by Default)
+
+The following updates are available but commented out in the script. Uncomment them in the `update_all()` function if needed:
+
+- 💎 **RubyGems** (`gem`)
+- 🚚 **Rust** packages (`cargo`)
 
 Feel free to contribute or customize the script to suit your needs! Happy updating! 🎉

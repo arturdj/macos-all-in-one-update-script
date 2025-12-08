@@ -50,11 +50,28 @@ update_brew() {
         return
     fi
 
-    brew update && brew upgrade && brew cleanup -s
+    # Check if brew is installed in non-default location and force bottle to avoid recompiling packages from source.
+    BREW_PATH=$(which brew)
+    if [ "${BREW_PATH}" != "/opt/homebrew/bin/brew" ] && [ "${BREW_PATH}" != "/usr/local/bin/brew" ]; then
+        brew update && brew upgrade --force-bottle && brew cleanup -s
+    else
+        brew update && brew upgrade && brew cleanup -s
+    fi
 
     println "Brew Diagnostics"
     brew doctor && brew missing
 }
+
+update_windsurf() {
+    println "Updating Windsurf"
+
+    if ! check_command windsurf; then
+        return
+    fi
+
+    windsurf --update-extensions
+}
+
 
 update_vscode() {
     println "Updating VSCode Extensions"
@@ -171,9 +188,10 @@ update_all() {
     fi
     update_brew
     update_vscode
-    update_gem
+    update_windsurf
+    #update_gem
     update_node_pkgs
-    update_cargo
+    #update_cargo
     update_app_store
     update_macos
 }
