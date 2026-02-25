@@ -188,10 +188,10 @@ update_all() {
     fi
     update_brew
     update_vscode
-    update_windsurf
-    #update_gem
+    # update_windsurf
+    # update_gem
     update_node_pkgs
-    #update_cargo
+    # update_cargo
     update_app_store
     update_macos
 }
